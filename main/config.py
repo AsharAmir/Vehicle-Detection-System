@@ -22,3 +22,15 @@ rect_b = 0
 #thickness of the RECTANGLES
 rect_t = 2
 
+MAX_VEHICLE = 500 #maximum number of vehicles to be allowed
+
+#alert 
+rectWidth = 565
+rectHeight = 100
+rectX = 400
+rectY = 300
+text = "Count Exceeded!"
+textSize = 2
+textThickness = 3
+textX = rectX + 20
+textY = rectY + rectHeight - 20
