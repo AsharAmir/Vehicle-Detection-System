@@ -1,0 +1,196 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.login-page {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(129, 116, 116, 0.253);
+  padding: 20px;
+  margin: 0 auto;
+  margin-top: 200px;
+  max-width: 400px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px) brightness(70%);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.login-page h1{
+    width: 600px;
+    height: 54px;
+    left: 0px;
+    top: 30px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+  }
+
+.button-container .buttonA{
+    position: absolute;
+    width: 98px;
+    height: 47px;
+    left: calc(50% - 98px/2 - 90px);
+    top: 111px;
+    
+    background: rgba(43, 180, 105, 0.77);
+    /* box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1), 0px 5px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 4px; */
+    text-decoration: none;
+}
+
+.button-container .buttonB{
+    position: absolute;
+    width: 98px;
+    height: 47px;
+    left: calc(50% - 98px/2 + 79px);
+    top: 111px;
+    
+    background: rgba(43, 180, 105, 0.77);
+    /* box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1), 0px 5px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 4px; */
+    text-decoration: none;
+}
+
+.button-container button:hover {
+    background-color: #45a049;
+}
+
+.settingButton .buttonC{
+    width: 98px;
+    margin-top: 230px;
+    margin-right: 30px;
+    height: 47px;
+    left: calc(50% - 98px/2 - 382.5px);
+    top: 582px;
+
+    background: rgba(180, 43, 43, 0.77);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1), 0px 5px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+}
+
+.exitButton .buttonD{
+    position: absolute;
+    width: 98px;
+    margin-top: 0;
+    margin-left: 1190px;
+    height: 47px;
+    top: 638px;
+
+    background: rgba(180, 43, 43, 0.77);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1), 0px 5px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+}
+
+.form {
+  margin: 0 auto 0px;
+  padding: 45px;
+  padding-top: 50px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.3);
+  max-width: 360px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px) brightness(70%);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #2bb469c4;
+  backdrop-filter: blur(10px) brightness(70%);
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  border-radius: 4px;
+  -webkit-transition: all 0.3 ease;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: #14964ee3;
+  transform: scale(1.05);
+}
+.form button a{
+  color: #000000;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form .message a {
+  color: #cdf7cfd2;
+  font-weight: bolder;
+  text-decoration: none;
+}
+.form .register-form {
+  display: none;
+}
+
+.form .login-form p{
+  color: white;
+  font-size: 12px;
+  font-weight: bolder;
+}
+
+body {
+  background-image: url("C:/Users/Ashar/Documents/NUCES/Study/SEM-2/ISE/PROJECT/Newfolder/assets/bgvehicleimg.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.blur{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(3px);
+  z-index: -1;
+}
+
+.headerTitle h1{
+  position: absolute;
+  width: 648px;
+  height: 75px;
+  left: 335px;
+  top: 130px;
+  
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 44px;
+  text-align: center;
+  font-weight: bolder;
+  color: #000000;
+}
