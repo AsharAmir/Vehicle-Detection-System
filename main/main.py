@@ -78,3 +78,30 @@ while True:
             cv2.rectangle(mainFrame, (rectX, rectY), (rectX + rectWidth, rectY + rectHeight), (0, 0, 255), -1)
             cv2.putText(mainFrame, text, (textX, textY), cv2.FONT_HERSHEY_SIMPLEX, textSize, (255, 255, 255), textThickness)
 
+    cv2.rectangle(mainFrame, (0, 0), (166, 45), (0, 0, 0), -1)
+    cv2.putText(mainFrame, "Vehicle Counter" ,(3, 15), cv2.FONT_HERSHEY_SIMPLEX, .6, (255, 255, 255), 1)
+    cv2.putText(mainFrame, "Vehicle Count: " + str(vehicleCounter), (8, 35), cv2.FONT_HERSHEY_SIMPLEX, .5, (255, 255, 255), 1)
+    
+
+    #cv2.putText(mainFrame, "Vehicle Count: " + str(vehicleCounter), (55, 50), cv2.QT_FONT_NORMAL, 1, (33, 0, 66), 3)
+
+
+
+    #rendering window title
+    cv2.imshow("Vehicle Detection", mainFrame)
+    if cv2.waitKey(1) == exitKey: #if escape key is pressed
+        timeNow = datetime.datetime.now()
+        dateNow = timeNow.strftime("%y-%m-%d_%H-%M-%S")
+        newFile_name = f"vehicleData{dateNow}.txt"
+        newFile_path = os.path.join(outputPath, newFile_name)
+        with open(newFile_path, 'w') as f:
+            f.write(str(vehicleCounter))
+
+        print("Data stored to file: " + newFile_path + newFile_name)
+        webbrowser.open(data_displayPath)
+        break #exit 
+    
+    
+#when loop terminated    
+cv2.destroyAllWindows()
+frameCapture.release()
