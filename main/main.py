@@ -56,4 +56,25 @@ while True:
         cv2.putText(mainFrame, "Vehicle#" + str(vehicleCounter), (x, y - 22), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0, 0, 255), 1)
         #rectangle rendering
         cv2.rectangle(mainFrame, (x, y), (x + w, y + h), (rect_r, rect_g, rect_b), rect_t)
+        
+        #midPoint variable
+        midPointer = vehiclePointer(x, y, w, h)
+        #adding the midpoints to our array
+        vehicleCounterArray.append(midPointer)
+        #rendering the midpoint
+        cv2.circle(mainFrame, midPointer, 10, (0, 0, 255), -1)
+        #cv2.drawContours(mainFrame, vehicleContour, -1, (255, 0, 255), 1)
+        for(x, y) in vehicleCounterArray:
+            #setting a range 
+            if y < (linePosY + pixelOffsetMargin) and y > (linePosY - pixelOffsetMargin):
+                vehicleCounter += 1
+            #rendering gui elements
+            cv2.line(mainFrame, (1, linePosY), (1300, linePosY), (0, 157, 0), 2)
+            vehicleCounterArray.remove((x, y))
+            print("Current Vehicle Count: " + str(vehicleCounter))
+
+        if vehicleCounter > MAX_VEHICLE:
+            # Draw alert
+            cv2.rectangle(mainFrame, (rectX, rectY), (rectX + rectWidth, rectY + rectHeight), (0, 0, 255), -1)
+            cv2.putText(mainFrame, text, (textX, textY), cv2.FONT_HERSHEY_SIMPLEX, textSize, (255, 255, 255), textThickness)
 
