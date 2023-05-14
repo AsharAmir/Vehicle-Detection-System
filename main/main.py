@@ -42,4 +42,18 @@ while True:
     dilateApply = cv2.morphologyEx(dilateFrame, cv2.MORPH_CLOSE, kernelFrame) #applying the dilate frames
     dilateApply = cv2.morphologyEx(dilateApply, cv2.MORPH_CLOSE, kernelFrame)
     vehicleContour, h = cv2.findContours(dilateApply, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE) #retrieving the contours in a numpy array
+    
+    #countLine rendering
+    cv2.line(mainFrame, (1, linePosY), (1300, linePosY), (225, 225, 225), 2)
+    
+    #using enumerate loop thru the numpy array of contours to generate the rectangles around the vehicles
+    for (i, n) in enumerate(vehicleContour):
+        (x, y, w, h) = cv2.boundingRect(n)
+        #validating if its a vehicle to minimise errors
+        if not ((w >= min_Width) and (h >= min_Height)):
+            continue
+        #text rendering
+        cv2.putText(mainFrame, "Vehicle#" + str(vehicleCounter), (x, y - 22), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0, 0, 255), 1)
+        #rectangle rendering
+        cv2.rectangle(mainFrame, (x, y), (x + w, y + h), (rect_r, rect_g, rect_b), rect_t)
 
