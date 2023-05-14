@@ -65,3 +65,86 @@ def lowestFrequency():
 
 
     return formatted_timestamp
+
+@app.route('/renderHighestFreq')
+def highestFrequency():
+    pathDir = 'C:/Users/Ashar/Documents/NUCES/Study/SEM-2/ISE/PROJECT/Newfolder/textoutputs'
+    highestFrequency = 0
+    highestFile = ''
+    for file in os.listdir(pathDir):
+        if file.endswith('.txt'):
+            file_path = os.path.join(pathDir, file)
+            with open(file_path, 'r') as f:
+                file_content = f.read()
+                if int(file_content) > highestFrequency:
+                    highestFrequency = int(file_content)
+                    highestFile = file
+        if highestFile:
+            # Extract the date and time parts from the timestamp
+            date_part = highestFile[11:13] + "/" + highestFile[14:16] + "/" + highestFile[17:19]
+            time_part = highestFile[20:22] + ":" + highestFile[23:25] + ":" + highestFile[26:28]
+
+            # Format the timestamp
+            formatted_timestamp = f"{date_part} {time_part}"
+            #print(formatted_timestamp)
+        return formatted_timestamp
+    
+@app.route('/graphAllFiles')
+def graphFiles():
+    pathDir = 'C:/Users/Ashar/Documents/NUCES/Study/SEM-2/ISE/PROJECT/Newfolder/textoutputs'
+    dataList = []
+    dateList = []
+    for file_name in os.listdir(pathDir):
+        if file_name.endswith('.txt'):
+            file_path = os.path.join(pathDir, file_name)
+            with open(file_path, 'r') as f:
+                intData = f.read()
+                dataList.append(int(intData))
+                dateList.append(file_name[17:19])
+    plt.plot(dateList, dataList)
+    plt.xlabel('Day')
+    plt.ylabel('Number of vehicles')
+    plt.title('Vehicle Count Graphed')
+    plt.savefig('dayXcountYgraph.png')
+    plt.close()
+    # if os.path.exists('dayXcountYgraph.png'):
+    #     os.remove('dayXcountYgraph.png')
+    # else:
+    #     plt.savefig('dayXcountYgraph.png')
+    #     plt.close()
+    return send_file('dayXcountYgraph.png', mimetype='image/png')
+
+@app.route('/renderVehicleCountToday')
+def getVehicleCountToday():
+    pathDir = 'C:/Users/Ashar/Documents/NUCES/Study/SEM-2/ISE/PROJECT/Newfolder/textoutputs'
+    vehicleSumToday = 0
+    for file_name in os.listdir(pathDir):
+        if file_name.endswith('.txt') and file_name[17:19] == datetime.now().strftime("%d"):
+            file_path = os.path.join(pathDir, file_name)
+            with open(file_path, 'r') as f:
+                vehicleSumToday += int(f.read())
+    return str(vehicleSumToday)
+
+
+@app.route('/saveUserData', methods=['POST'])
+def save_user_data():
+    print("in func")
+    user_data = request.get_json()
+    
+    name = user_data.get('name')
+    password = user_data.get('password')
+    
+    file_path = 'C:/Users/Ashar/Documents/NUCES/Study/SEM-2/ISE/PROJECT/Newfolder/textoutputs/userdata.txt'
+    directory = os.path.dirname(file_path)
+
+    with open(file_path, 'a') as file:
+        file.write(f'{name}, {password}\n')
+
+    return 'User data saved successfully'
+
+
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
