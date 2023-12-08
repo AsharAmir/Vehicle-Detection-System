@@ -4,7 +4,7 @@ ISE PROJECT DELIVERABLE #2
 
 ## Developed by
 
-- **Lead Developer:** [Ashhar Amir](https://www.github.com/ashharamir)
+- **Lead Developer:** [Ashhar Amir](https://github.com/AsharAmir)
 - Team Members:
   - [Aysha Hashmi](#)
   - [Bushra Sajid](#)
@@ -51,6 +51,6 @@ The Vehicle Detection System is a project aimed at counting the number of vehicl
 
 ## Acknowledgments
 
-This project is part of the ISE (Information Systems Engineering) course and serves as the second deliverable. Special thanks to [Ashhar Amir](https://www.github.com/ashharamir) for leading the coding efforts.
+This project is part of the ISE (Information Systems Engineering) course and serves as the second deliverable. Special thanks to [Ashhar Amir](https://github.com/AsharAmir) for leading the coding efforts.
 
 Feel free to contribute and enhance the system for more advanced features!
